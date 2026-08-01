@@ -296,6 +296,13 @@
     font-weight:700;
     letter-spacing:.3px;
   }
+  .task-amount{
+    font-family:var(--font-mono);
+    font-size:11px;
+    font-weight:400;
+    color:var(--neon-green);
+    letter-spacing:.5px;
+  }
   .task-quest{
     font-family:var(--font-mono);
     font-size:11px;
@@ -524,10 +531,10 @@
   const STAT_KEYS = ["STR","STA","DEX"];
 
   const TASKS = [
-    { id:"pushups", icon:"💪", name:"Pompki",    quest:"Trening Siłowy"      },
-    { id:"squats",  icon:"🦵", name:"Przysiady", quest:"Fundament Mocy"      },
-    { id:"situps",  icon:"🔥", name:"Brzuszki",  quest:"Rdzeń Wojownika"     },
-    { id:"run",     icon:"🏃", name:"Bieganie",  quest:"Wytrzymałość Łowcy"  }
+    { id:"pushups", icon:"💪", name:"Pompki",    target:"20 powtórzeń", quest:"Trening Siłowy"      },
+    { id:"squats",  icon:"🦵", name:"Przysiady", target:"25 powtórzeń", quest:"Fundament Mocy"      },
+    { id:"situps",  icon:"🔥", name:"Brzuszki",  target:"20 powtórzeń", quest:"Rdzeń Wojownika"     },
+    { id:"run",     icon:"🏃", name:"Bieganie",  target:"2 km",         quest:"Wytrzymałość Łowcy"  }
   ];
 
   function todayKey(){
@@ -613,7 +620,7 @@
       card.innerHTML =
         '<div class="icon">' + task.icon + '</div>' +
         '<div class="task-info">' +
-          '<div class="task-name">' + task.name + '</div>' +
+          '<div class="task-name">' + task.name + ' <span class="task-amount">&times; ' + task.target + '</span></div>' +
           '<div class="task-quest">' + task.quest + '</div>' +
           '<div class="task-xp">+' + XP_PER_TASK + ' XP</div>' +
         '</div>' +
@@ -719,11 +726,5 @@
     render();
   });
 
-  // ==== START ====
-  render();
-
-})();
-</script>
-</body>
-</html>
+  // =
 
